@@ -103,7 +103,7 @@ public class HidDevice implements purejavahidapi.HidDevice {
 		m_OutputReportOverlapped = new OVERLAPPED();
 		m_OutputReportBytesWritten = new int[] { 0 };
 
-		m_InputReportLength = caps.InputReportByteLength;
+		m_InputReportLength = (caps.InputReportByteLength == 0) ? 1 : caps.InputReportByteLength;
 		m_InputReportOverlapped = new OVERLAPPED();
 		m_InputReportMemory = new Memory(m_InputReportLength);
 		m_InputReportBytes = new byte[m_InputReportLength];
